@@ -1,0 +1,15 @@
+<div class="content">
+  <button ng-click="order ='age'">Order by age</button>
+  <button ng-click="order = 'name'">Order by name</button>
+  <input type="text" ng-model="search"/>
+    <ul id="ninjas">
+      <li ng-repeat="x in ninjas | orderBy : order | filter : search">{{x.name}}-{{x.age|currency:'$'}}
+        <div class="remove" ng-click="removeNinja(x)">X</div>
+      </li>
+    </ul>
+  <br>
+  Name <br><input type="text" ng-model="user"/>
+  Age <br><input type="number" ng-model="age">
+  <button ng-click="addUser(user,age)">Add User</button>
+  <button ng-click="removeAll()" style="display:block;margin-top:10px">Remove All Ninjas</button>
+</div>
