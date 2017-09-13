@@ -5,15 +5,15 @@ myNinjaApp.config(['$routeProvider','$locationProvider',function($routeProvider,
 
 $routeProvider
   .when('/home',{
-    templateUrl: '/angular/views/home.html',
+    templateUrl: '/views/home.html',
     controller : 'NinjaController'
   })
   .when('/directory',{
-    templateUrl: '/angular/views/directory.html',
+    templateUrl: '/views/directory.html',
     controller : 'NinjaController'
   })
   .when('/contact',{
-    templateUrl: '/angular/views/contact.html',
+    templateUrl: '/views/contact.html',
   }).otherwise({
     redirectTo : '/home'
   });
@@ -25,7 +25,7 @@ myNinjaApp.directive('randomNinja',[function() {
       ninjas : '=',
       title : '='
     },
-    templateUrl:'/angular/views/custom.html',
+    templateUrl:'/views/custom.html',
     transclude : true,
     controller:function($scope){
       $scope.random = Math.floor(Math.random()*3);
@@ -58,7 +58,7 @@ myNinjaApp.controller('NinjaController',['$scope','$http',function($scope,$http)
     $scope.ninjas = [];
   }
 
-  $http.get('/angular/data/ninjas.json').then(function(data) {
+  $http.get('/data/ninjas.json').then(function(data) {
     $scope.ninjas = data.data;
   },function(e) {
     console.log(e);
